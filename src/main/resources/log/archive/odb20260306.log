@@ -1,0 +1,14 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-06 19:19:14 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 21472@Rafituki
+
+[2026-03-06 19:19:14 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-06 19:19:14 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-06 19:19:14 #4 type] 
+Type domain.Sale is not enhanced.
+

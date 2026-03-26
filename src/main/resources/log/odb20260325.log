@@ -1,0 +1,728 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:15:51 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 31012@Rafituki
+
+[2026-03-25 17:15:52 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:15:52 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:15:52 #4 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:16:12 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 13280@Rafituki
+
+[2026-03-25 17:16:12 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:16:12 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:16:12 #4 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:28:04 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' has been recovered (tr. 21-21)
+
+[2026-03-25 17:28:04 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 22680@Rafituki
+
+[2026-03-25 17:28:04 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:28:04 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:28:04 #5 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:29:20 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 30524@Rafituki
+
+[2026-03-25 17:29:20 #2 type.registry] 
+New type domain.User
+
+[2026-03-25 17:29:20 #3 type.registry] 
+New type domain.Seller
+
+[2026-03-25 17:29:20 #4 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:29:20 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:29:20 #6 type.registry] 
+New type domain.Sale
+
+[2026-03-25 17:29:20 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:29:20 #8 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-25 17:29:20 #9 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:29:28 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 10068@Rafituki
+
+[2026-03-25 17:29:28 #2 type.registry] 
+New type domain.User
+
+[2026-03-25 17:29:28 #3 type.registry] 
+New type domain.Seller
+
+[2026-03-25 17:29:28 #4 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:29:28 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:29:28 #6 type.registry] 
+New type domain.Sale
+
+[2026-03-25 17:29:28 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:29:28 #8 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-25 17:29:28 #9 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:30:01 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 1-7)
+
+[2026-03-25 17:30:01 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 18428@Rafituki
+
+[2026-03-25 17:30:01 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:30:01 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:30:01 #5 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:46:18 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 4952@Rafituki
+
+[2026-03-25 17:46:18 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:46:18 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:46:18 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:46:18 #5 type.registry] 
+New type domain.Offer
+
+[2026-03-25 17:46:18 #6 type] 
+Type domain.Offer is not enhanced.
+
+[2026-03-25 17:46:32 #7 type.registry] 
+New type java.util.ArrayList<domain.Offer>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:46:57 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 8-10)
+
+[2026-03-25 17:46:57 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 2832@Rafituki
+
+[2026-03-25 17:46:57 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:46:57 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:46:57 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:46:57 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:47:56 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 11-11)
+
+[2026-03-25 17:47:56 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 10404@Rafituki
+
+[2026-03-25 17:47:56 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:47:56 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:47:56 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:47:56 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:48:15 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 23056@Rafituki
+
+[2026-03-25 17:48:15 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:48:15 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:48:15 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:48:15 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:48:42 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 12-12)
+
+[2026-03-25 17:48:42 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 13320@Rafituki
+
+[2026-03-25 17:48:43 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:48:43 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:48:43 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:48:43 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:49:11 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 24632@Rafituki
+
+[2026-03-25 17:49:11 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:49:11 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:49:11 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:49:11 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:51:30 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 16180@Rafituki
+
+[2026-03-25 17:51:30 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:51:30 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:51:30 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:51:30 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:51:57 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 16032@Rafituki
+
+[2026-03-25 17:51:57 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:51:57 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:51:57 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:51:57 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:52:12 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 16892@Rafituki
+
+[2026-03-25 17:52:12 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:52:12 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:52:12 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:52:12 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:53:13 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 13-13)
+
+[2026-03-25 17:53:13 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 30848@Rafituki
+
+[2026-03-25 17:53:13 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:53:13 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:53:13 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:53:13 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:53:20 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 27856@Rafituki
+
+[2026-03-25 17:53:21 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:53:21 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:53:21 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:53:21 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:53:32 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 19324@Rafituki
+
+[2026-03-25 17:53:32 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:53:32 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:53:32 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:53:32 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:53:50 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 14844@Rafituki
+
+[2026-03-25 17:53:50 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:53:50 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:53:50 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:53:50 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:54:15 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 31696@Rafituki
+
+[2026-03-25 17:54:15 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:54:15 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:54:15 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:54:15 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:54:29 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 21828@Rafituki
+
+[2026-03-25 17:54:29 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:54:29 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:54:29 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:54:29 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:54:36 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 19536@Rafituki
+
+[2026-03-25 17:54:36 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:54:36 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:54:36 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:54:36 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:55:08 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 24440@Rafituki
+
+[2026-03-25 17:55:08 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:55:08 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:55:08 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:55:08 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:55:42 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 14-14)
+
+[2026-03-25 17:55:42 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 24416@Rafituki
+
+[2026-03-25 17:55:42 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:55:42 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:55:42 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:55:42 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:56:16 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 3556@Rafituki
+
+[2026-03-25 17:56:16 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:56:16 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:56:16 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:56:16 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:56:33 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 7456@Rafituki
+
+[2026-03-25 17:56:33 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:56:33 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:56:33 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:56:33 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:58:30 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 31616@Rafituki
+
+[2026-03-25 17:58:30 #2 type.registry] 
+New type domain.User
+
+[2026-03-25 17:58:30 #3 type.registry] 
+New type domain.Seller
+
+[2026-03-25 17:58:30 #4 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:58:30 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:58:31 #6 type.registry] 
+New type domain.Sale
+
+[2026-03-25 17:58:31 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:58:31 #8 type.registry] 
+New type domain.Offer
+
+[2026-03-25 17:58:31 #9 type] 
+Type domain.Offer is not enhanced.
+
+[2026-03-25 17:58:31 #10 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-25 17:58:31 #11 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-25 17:59:04 #12 type.registry] 
+New type java.util.ArrayList<domain.Offer>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 17:59:30 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 24332@Rafituki
+
+[2026-03-25 17:59:30 #2 type.registry] 
+New type domain.User
+
+[2026-03-25 17:59:30 #3 type.registry] 
+New type domain.Seller
+
+[2026-03-25 17:59:30 #4 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 17:59:30 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 17:59:30 #6 type.registry] 
+New type domain.Sale
+
+[2026-03-25 17:59:30 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 17:59:30 #8 type.registry] 
+New type domain.Offer
+
+[2026-03-25 17:59:30 #9 type] 
+Type domain.Offer is not enhanced.
+
+[2026-03-25 17:59:30 #10 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-25 17:59:30 #11 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-25 17:59:47 #12 type.registry] 
+New type java.util.ArrayList<domain.Offer>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:00:06 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 1-9)
+
+[2026-03-25 18:00:06 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 6212@Rafituki
+
+[2026-03-25 18:00:06 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:00:06 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:00:06 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:00:06 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:00:55 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 10-11)
+
+[2026-03-25 18:00:55 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 19372@Rafituki
+
+[2026-03-25 18:00:55 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:00:55 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:00:55 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:00:55 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:01:49 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 12-12)
+
+[2026-03-25 18:01:49 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 16212@Rafituki
+
+[2026-03-25 18:01:50 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:01:50 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:01:50 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:01:50 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:03:43 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 11840@Rafituki
+
+[2026-03-25 18:03:43 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:03:43 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:03:43 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:03:43 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:03:55 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 15204@Rafituki
+
+[2026-03-25 18:03:55 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:03:55 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:03:55 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:03:55 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:04:17 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 13-13)
+
+[2026-03-25 18:04:17 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 10460@Rafituki
+
+[2026-03-25 18:04:17 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:04:18 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:04:18 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:04:18 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:04:49 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 14-15)
+
+[2026-03-25 18:04:49 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 25680@Rafituki
+
+[2026-03-25 18:04:49 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:04:49 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:04:49 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:04:49 #6 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:08:26 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 28352@Rafituki
+
+[2026-03-25 18:08:26 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:08:26 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:08:26 #4 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:08:26 #5 type] 
+Type domain.Offer is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-25 18:08:58 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' has been recovered (tr. 16-16)
+
+[2026-03-25 18:08:58 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\CorrecciónSubirAGitHub\src\main\resources\products.temp' is opened by 12252@Rafituki
+
+[2026-03-25 18:08:58 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-25 18:08:58 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-25 18:08:58 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-25 18:08:58 #6 type] 
+Type domain.Offer is not enhanced.
+

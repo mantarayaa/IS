@@ -1,0 +1,73 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:44:38 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 9644@Rafituki
+
+[2026-03-05 10:44:38 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:44:38 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:44:38 #4 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:48:34 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 3020@Rafituki
+
+[2026-03-05 10:48:34 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:48:34 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:48:34 #4 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:51:06 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' has been recovered (tr. 14-17)
+
+[2026-03-05 10:51:06 #2 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 8232@Rafituki
+
+[2026-03-05 10:51:06 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:51:06 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:51:06 #5 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:53:53 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 13044@Rafituki
+
+[2026-03-05 10:53:53 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:53:53 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:53:53 #4 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:54:35 #1 store] 
+Database 'C:\Users\rafae\eclipse-workspace\EntregaPrimeraIteracion_RConcejo_AUrquia_GPeman\src\main\resources\products.temp' is opened by 16212@Rafituki
+
+[2026-03-05 10:54:36 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:54:36 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:54:36 #4 type] 
+Type domain.Sale is not enhanced.
+
