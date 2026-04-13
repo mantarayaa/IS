@@ -56,7 +56,7 @@ public class Seller extends User implements Serializable {
 	
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
-	private List<Sale> boughtSales = new ArrayList<Sale>(); // Lista para las compras
+	private List<Sale> boughtSales = new ArrayList<Sale>(); 
 
 	public List<Sale> getBoughtSales() { return boughtSales; }
 

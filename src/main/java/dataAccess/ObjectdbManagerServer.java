@@ -28,11 +28,8 @@ public class ObjectdbManagerServer extends JDialog {
 	JTextArea textArea;
 	ConfigXML c;
 	
-	//For windows
     private String objectDbpath="src\\main\\resources\\objectdb.jar";
     
-    //For mac 
-    //private String objectDbpath="src//main//resources//objectdb.jar";
 
  	
 

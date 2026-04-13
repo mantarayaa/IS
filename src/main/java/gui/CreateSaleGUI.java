@@ -64,7 +64,6 @@ public class CreateSaleGUI extends JFrame {
 	private JFrame thisFrame;
 	private final JButton btnNewButton_2 = new JButton("grabar Imagen"); //$NON-NLS-1$ //$NON-NLS-2$
 	
-	// NUEVOS COMPONENTES
 	private JCheckBox chckbxSinImagen;
 	private JButton btnNewButton; 
 
@@ -181,7 +180,7 @@ public class CreateSaleGUI extends JFrame {
                         targetImg = rescale(ImageIO.read(targetFile));
                         encodeFileToBase64Binary(targetFile);
                     } catch (IOException ex) {
-                        //Logger.getLogger(MainAppFrame.class.getName()).log(Level.SEVERE, null, ex);
+
                     }
                     
                     panel_1.setLayout(new BorderLayout(0, 0));
@@ -230,7 +229,6 @@ public class CreateSaleGUI extends JFrame {
 					   System.out.println("file stored "+img);
 					}
 				} catch(IOException ex) {
-				 //System.out.println("Write error for " + outputfile.getPath()  ": " + ex.getMessage());
 				  }
 				
 			}
@@ -260,8 +258,6 @@ public class CreateSaleGUI extends JFrame {
 					int monthAct = calendarAct.get(Calendar.MONTH);
 					if (monthAct!=monthAnt) {
 						if (monthAct==monthAnt+2) { 
-							// Si en JCalendar está 30 de enero y se avanza al mes siguiente, devolverá 2 de marzo (se toma como equivalente a 30 de febrero)
-							// Con este código se dejará como 1 de febrero en el JCalendar
 							calendarAct.set(Calendar.MONTH, monthAnt+1);
 							calendarAct.set(Calendar.DAY_OF_MONTH, 1);
 						}
@@ -296,7 +292,6 @@ public class CreateSaleGUI extends JFrame {
 				return ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.ErrorQuery");
 			else {
 
-				// trigger an exception if the introduced string is not a number
 					float price = Float.parseFloat(jTextFieldPrice.getText());
 					if (price <= 0) 
 						return ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.PriceMustBeGreaterThan0");
@@ -324,10 +319,8 @@ public  String encodeFileToBase64Binary(File file){
             encodedfile=new String(Base64.getEncoder().encode(bytes));
 
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

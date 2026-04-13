@@ -2,92 +2,83 @@ package gui;
 
 import javax.swing.*;
 import businessLogic.BLFacade;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.ResourceBundle;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import domain.User;
+import java.awt.*;
 
 public class MainGUI extends JFrame {
-	
-    private String sellerMail;
-    private boolean isSellerMode; 
-	private static final long serialVersionUID = 1L;
+	private String userMail;
+	private boolean isSellerMode; 
+	private static JLabel lblBalance; 
+	private static BLFacade appFacadeInterface;
+	private static String staticMail; 
 
-	private JPanel jContentPane = null;
-	private JButton jButtonCreateQuery = null;
-	private JButton jButtonQueryQueries = null;
-	private JButton btnBottomAction = null; 
+	public static BLFacade getBusinessLogic() { return appFacadeInterface; }
+	public static void setBussinessLogic(BLFacade facade) { appFacadeInterface = facade; }
 
-    private static BLFacade appFacadeInterface;
-	
-	public static BLFacade getBusinessLogic(){
-		return appFacadeInterface;
-	}
-	 
-	public static void setBussinessLogic (BLFacade facade){
-		appFacadeInterface=facade;
+	public static void actualizarSaldo() {
+		if (lblBalance != null && appFacadeInterface != null) {
+			User u = appFacadeInterface.getUser(staticMail);
+			if (u != null) {
+				lblBalance.setText("Saldo: " + u.getBalance() + "€");
+			}
+		}
 	}
 
 	public MainGUI(String mail, boolean isSeller) {
-		super();
-		this.sellerMail = mail;
-		this.isSellerMode = isSeller; 
+		this.userMail = mail;
+		staticMail = mail;
+		this.isSellerMode = isSeller;
 		
-		this.setSize(495, 350); 
-		JLabel jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
-		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
-		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		jButtonCreateQuery.setEnabled(isSellerMode); 
-		jButtonCreateQuery.addActionListener(e -> {
-			JFrame a = new CreateSaleGUI(sellerMail);
-			a.setVisible(true);
-		});
-		
-		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
-		jButtonQueryQueries.addActionListener(e -> {
-			QuerySalesGUI a = new QuerySalesGUI(sellerMail);
-			a.setVisible(true);
-		});
+		this.setSize(500, 400);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 
-		btnBottomAction = new JButton();
-		if (isSellerMode) {
-			btnBottomAction.setText("Ver ofertas de mis productos");
-			btnBottomAction.addActionListener(e -> {
-				QuerySalesGUI v = new QuerySalesGUI(sellerMail);
-				v.setModoVendedor(true); 
-				v.setVisible(true);
-			});
-		} else {
-			btnBottomAction.setText("Ver mis compras hechas");
-			btnBottomAction.addActionListener(e -> {
-				QuerySalesGUI v = new QuerySalesGUI(sellerMail);
-				v.setModoHistorial(true);
-				v.setVisible(true);
-			});
-		}
+		JPanel panelTop = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		lblBalance = new JLabel();
+		actualizarSaldo(); 
+		lblBalance.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(4, 1, 10, 10));
-		jContentPane.add(jLabelSelectOption);
-		jContentPane.add(jButtonCreateQuery);
-		jContentPane.add(jButtonQueryQueries);
-		jContentPane.add(btnBottomAction);
-		
-		setContentPane(jContentPane);
-		String modeText = isSellerMode ? " (Vendedor)" : " (Comprador)";
-		setTitle("Market: " + sellerMail + modeText);
-		
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				System.exit(1);
+		JButton btnRecharge = new JButton("Recargar");
+		btnRecharge.addActionListener(e -> {
+			String input = JOptionPane.showInputDialog(this, "¿Cuánto dinero quieres añadir?");
+			try {
+				if (input != null) {
+					float amount = Float.parseFloat(input);
+					if (amount <= 0) throw new Exception();
+					appFacadeInterface.updateUserBalance(userMail, amount);
+					actualizarSaldo(); 
+					JOptionPane.showMessageDialog(this, "¡Saldo actualizado!");
+				}
+			} catch (Exception ex) {
+				JOptionPane.showMessageDialog(this, "Introduce una cantidad válida.");
 			}
 		});
+		
+		panelTop.add(lblBalance);
+		panelTop.add(btnRecharge);
+
+		JButton btnCreate = new JButton("Crear Venta");
+		btnCreate.setEnabled(isSellerMode);
+		btnCreate.addActionListener(e -> new CreateSaleGUI(userMail).setVisible(true));
+
+		JButton btnQuery = new JButton("Buscar Productos");
+		btnQuery.addActionListener(e -> new QuerySalesGUI(userMail).setVisible(true));
+
+		JButton btnExtra = new JButton(isSellerMode ? "Ver mis ventas" : "Ver mis compras");
+		btnExtra.addActionListener(e -> {
+			QuerySalesGUI q = new QuerySalesGUI(userMail);
+			if (isSellerMode) q.setModoVendedor(true); else q.setModoHistorial(true);
+			q.setVisible(true);
+		});
+
+		JPanel jContentPane = new JPanel(new GridLayout(4, 1, 10, 10));
+		jContentPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+		jContentPane.add(panelTop);
+		jContentPane.add(btnCreate);
+		jContentPane.add(btnQuery);
+		jContentPane.add(btnExtra);
+
+		this.setContentPane(jContentPane);
+		this.setTitle("Market - " + userMail + (isSellerMode ? " (Vendedor)" : " (Comprador)"));
 	}
 }

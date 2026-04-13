@@ -8,9 +8,7 @@ import javax.jws.WebService;
 import dataAccess.DataAccess;
 import domain.Sale;
 import domain.Offer;
-import exceptions.FileNotUploadedException;
-import exceptions.MustBeLaterThanTodayException;
-import exceptions.SaleAlreadyExistException;
+import exceptions.*;
 import java.awt.Image;
 
 @WebService(endpointInterface = "businessLogic.BLFacade")
@@ -78,12 +76,14 @@ public class BLFacadeImplementation implements BLFacade {
 		return res;
 	}
 
-	public void acceptOffer(String userEmail, Sale sale) {
-		dbManager.open();
-		dbManager.acceptOffer(userEmail, sale);
-		dbManager.close();
+	@WebMethod
+	public boolean acceptOffer(String buyerEmail, Sale sale, float amount) {
+	    dbManager.open();
+	    boolean res = dbManager.acceptOffer(buyerEmail, sale, amount);
+	    dbManager.close();
+	    return res;
 	}
-
+	
 	public List<Sale> getBoughtSales(String email) {
 		dbManager.open();
 		List<Sale> bought = dbManager.getBoughtSales(email);
@@ -105,4 +105,22 @@ public class BLFacadeImplementation implements BLFacade {
 		dbManager.close();
 		return sales;
 	}
+
+	@WebMethod
+	public float updateUserBalance(String email, float amount) {
+		dbManager.open();
+		float newBalance = dbManager.updateUserBalance(email, amount);
+		dbManager.close();
+		return newBalance;
+	}
+	
+	@WebMethod
+	public domain.User getUser(String email) {
+	    dbManager.open();
+	    domain.User u = dbManager.getUser(email);
+	    dbManager.close();
+	    return u;
+	}
+	
+	
 }

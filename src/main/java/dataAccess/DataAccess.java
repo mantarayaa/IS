@@ -2,25 +2,17 @@ package dataAccess;
 
 import java.awt.Image;
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.imageio.ImageIO;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
+
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Seller;
 import domain.Sale;
 import domain.Offer;
-import exceptions.FileNotUploadedException;
-import exceptions.MustBeLaterThanTodayException;
-import exceptions.SaleAlreadyExistException;
+import domain.User; // ESTE IMPORT ES EL QUE TE DABA EL ERROR
+import exceptions.*;
 
 public class DataAccess {
 	private EntityManager db;
@@ -59,13 +51,20 @@ public class DataAccess {
 	public void initializeDB() {
 		db.getTransaction().begin();
 		try {
-			Seller seller1 = new Seller("seller1@gmail.com", "Aitor Fernandez", "1234");
-			db.persist(seller1);
-			db.getTransaction().commit();
-		} catch (Exception e) { e.printStackTrace(); }
+			Seller s = db.find(Seller.class, "seller1@gmail.com");
+			if (s == null) {
+				Seller seller1 = new Seller("seller1@gmail.com", "Aitor Fernandez", "1234");
+				db.persist(seller1);
+				db.getTransaction().commit();
+			} else {
+				db.getTransaction().rollback();
+			}
+		} catch (Exception e) {
+			if (db.getTransaction().isActive()) db.getTransaction().rollback();
+		}
 	}
 
-	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, boolean sinImagen) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, boolean sinImagen) throws MustBeLaterThanTodayException {
 		if (pubDate.before(UtilDate.trim(new Date()))) throw new MustBeLaterThanTodayException("Date error");
 		db.getTransaction().begin();
 		Seller seller = db.find(Seller.class, sellerEmail);
@@ -73,15 +72,6 @@ public class DataAccess {
 		db.persist(seller);
 		db.getTransaction().commit();
 		return sale;
-	}
-
-	/**
-	 * METODO QUE FALTABA: Obtiene todos los productos que coincidan con la descripcion
-	 */
-	public List<Sale> getSales(String desc) {
-		TypedQuery<Sale> query = db.createQuery("SELECT s FROM Sale s WHERE s.title LIKE ?1", Sale.class);
-		query.setParameter(1, "%" + desc + "%");
-		return query.getResultList();
 	}
 
 	public List<Sale> getPublishedSales(String desc, Date pubDate) {
@@ -105,20 +95,23 @@ public class DataAccess {
 			db.getTransaction().commit();
 		} catch (Exception e) {
 			if (db.getTransaction().isActive()) db.getTransaction().rollback();
-			e.printStackTrace();
 		}
 	}
 
-	public domain.User doLogin(String email, String password) {
-		domain.User user = db.find(domain.User.class, email);
+	public User doLogin(String email, String password) {
+		User user = db.find(User.class, email);
 		if (user != null && user.getPassword().equals(password)) return user;
 		return null;
+	}
+
+	public User getUser(String email) {
+		return db.find(User.class, email);
 	}
 
 	public boolean registerUser(String email, String name, String password, boolean isSeller) {
 		db.getTransaction().begin();
 		try {
-			if (db.find(domain.User.class, email) != null) {
+			if (db.find(User.class, email) != null) {
 				db.getTransaction().commit();
 				return false;
 			}
@@ -132,31 +125,63 @@ public class DataAccess {
 		}
 	}
 
-	public Image downloadImage(String imageName) {
-		try {
-			return ImageIO.read(new File(basePath + imageName));
-		} catch (Exception e) { return null; }
-	}
+	public boolean acceptOffer(String buyerEmail, Sale sale, float amount) {
+	    db.getTransaction().begin();
+	    try {
+	        User buyer = db.find(User.class, buyerEmail);
+	        if (buyer == null || buyer.getBalance() < amount) {
+	            db.getTransaction().rollback();
+	            return false;
+	        }
 
-	public void acceptOffer(String userEmail, Sale sale) {
+	        Sale s = db.find(Sale.class, sale.getSaleNumber());
+	        Seller seller = db.find(Seller.class, s.getSeller().getEmail());
+
+	        buyer.setBalance(buyer.getBalance() - amount);
+	        seller.setBalance(seller.getBalance() + amount);
+
+	        ((Seller)buyer).addBoughtSale(s);
+	        s.setStatus(4); 
+	        s.setBuyerEmail(buyerEmail);
+	        s.setPrice(amount);
+
+	        db.getTransaction().commit();
+	        return true;
+	    } catch (Exception e) {
+	        if (db.getTransaction().isActive()) db.getTransaction().rollback();
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	
+	public float updateUserBalance(String email, float amount) {
 		db.getTransaction().begin();
 		try {
-			Seller user = db.find(Seller.class, userEmail);
-			Sale s = db.find(Sale.class, sale.getSaleNumber());
-			user.addBoughtSale(s);
-			s.setStatus(4);
+			User u = db.find(User.class, email);
+			u.setBalance(u.getBalance() + amount);
+			float res = u.getBalance();
 			db.getTransaction().commit();
+			return res;
 		} catch (Exception e) { 
 			if (db.getTransaction().isActive()) db.getTransaction().rollback();
+			return -1;
 		}
 	}
 
 	public List<Sale> getBoughtSales(String email) {
 		Seller user = db.find(Seller.class, email);
-		return user.getBoughtSales();
+		return (user != null) ? user.getBoughtSales() : new ArrayList<Sale>();
 	}
 
-	public void close() { 
-		if (db != null && db.isOpen()) db.close(); 
+	public List<Sale> getSales(String desc) {
+		TypedQuery<Sale> query = db.createQuery("SELECT s FROM Sale s WHERE s.title LIKE ?1", Sale.class);
+		query.setParameter(1, "%" + desc + "%");
+		return query.getResultList();
 	}
+
+	public Image downloadImage(String imageName) {
+		try { return ImageIO.read(new File(basePath + imageName)); } catch (Exception e) { return null; }
+	}
+
+	public void close() { if (db != null && db.isOpen()) db.close(); }
 }

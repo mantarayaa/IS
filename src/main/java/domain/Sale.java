@@ -29,6 +29,7 @@ public class Sale implements Serializable {
 	private float price;
 	private Date pubDate;
 	private String fileName;
+	private String buyerEmail; // Necesario para el historial de compras
 	
 	private Seller seller;  
 
@@ -51,20 +52,15 @@ public class Sale implements Serializable {
 		    this.fileName=file.getName();
 			try {
 				BufferedImage img1 = ImageIO.read(file);
-
 				String path="src/main/resources/images/";
 				File outputfile = new File(path+file.getName());
-		    
-		    
-			    ImageIO.write(img1, "png", outputfile);  // ignore returned boolean
+			    ImageIO.write(img1, "png", outputfile); 
 
 			} catch(IOException ex) {
-				//System.out.println("Write error for " + outputfile.getPath()  ": " + ex.getMessage());
+				// Error al escribir la imagen
+		    }
 		}
-		}
-
 		this.seller = seller;
-		
 	}
 	
 	public Integer getSaleNumber() {
@@ -127,6 +123,14 @@ public class Sale implements Serializable {
 		return fileName;
 	}
 	
+	public String getBuyerEmail() {
+		return buyerEmail;
+	}
+
+	public void setBuyerEmail(String buyerEmail) {
+		this.buyerEmail = buyerEmail;
+	}
+
 	public List<Offer> getOffers() {
 		return offers;
 	}

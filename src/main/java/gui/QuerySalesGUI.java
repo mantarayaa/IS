@@ -4,132 +4,118 @@ import businessLogic.BLFacade;
 import configuration.UtilDate;
 import domain.Sale;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
 public class QuerySalesGUI extends JFrame {
-	
-	private static final long serialVersionUID = 1L;
-	private final JLabel jLabelProducts = new JLabel("Productos encontrados:"); 
+    private static final long serialVersionUID = 1L;
+    private final JLabel jLabelProducts = new JLabel("Productos encontrados:"); 
+    private JButton jButtonSearch = new JButton("Buscar"); 
+    private JButton jButtonClose = new JButton("Cerrar");
+    private JScrollPane scrollPanelProducts = new JScrollPane();
+    private JTable tableProducts = new JTable();
+    private DefaultTableModel tableModelProducts;
+    private JTextField jTextFieldSearch = new JTextField();
+    
+    private String currentUserEmail;
+    private boolean modoHistorial = false; 
+    private boolean modoVendedor = false; 
+    private String tipoActual = "BUSQUEDA";
 
-	private JButton jButtonSearch = new JButton("Buscar"); 
-	private JButton jButtonClose = new JButton("Cerrar");
-	private JScrollPane scrollPanelProducts = new JScrollPane();
-	private JTable tableProducts = new JTable();
-	private DefaultTableModel tableModelProducts;
-	private QuerySalesGUI thisFrame; 
-	private JTextField jTextFieldSearch;
-	
-	private String currentUserEmail;
-	private boolean modoHistorial = false; 
-	private boolean modoVendedor = false; 
+    private String[] columnNames = new String[] { "Título", "Precio", "Fecha", "Estado", "Objeto" };
 
-	private String[] columnNamesProducts = new String[] { "Título", "Precio", "Fecha" };
+    public QuerySalesGUI(String userEmail) {
+        this.currentUserEmail = userEmail;
+        this.getContentPane().setLayout(null);
+        this.setSize(new Dimension(700, 450));
+        this.setLocationRelativeTo(null);
+        this.setTitle("Buscador de Productos");
 
-	public QuerySalesGUI(String userEmail) {
-		this.currentUserEmail = userEmail;
-		thisFrame = this;
-		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(600, 450));
-		this.setTitle("Buscador de Productos");
-		
-		jLabelProducts.setBounds(50, 100, 400, 16);
-		this.getContentPane().add(jLabelProducts);
+        jLabelProducts.setBounds(50, 100, 400, 16);
+        getContentPane().add(jLabelProducts);
 
-		jButtonClose.setBounds(230, 350, 130, 30);
-		jButtonClose.addActionListener(e -> thisFrame.setVisible(false));		
-		this.getContentPane().add(jButtonClose);
+        jTextFieldSearch.setBounds(50, 50, 300, 26);
+        getContentPane().add(jTextFieldSearch);
 
-		scrollPanelProducts.setBounds(50, 130, 500, 200);
-		scrollPanelProducts.setViewportView(tableProducts);
-		
-		tableModelProducts = new DefaultTableModel(null, columnNamesProducts) {
-			@Override public boolean isCellEditable(int r, int c) { return false; }
-		};
-		tableProducts.setModel(tableModelProducts);
-		tableModelProducts.setColumnCount(4); 
+        jButtonSearch.setBounds(370, 50, 120, 29);
+        jButtonSearch.addActionListener(e -> {
+            tipoActual = modoHistorial ? "HISTORIAL" : (modoVendedor ? "VENDEDOR" : "BUSQUEDA");
+            cargarDatos(tipoActual);
+        });
+        getContentPane().add(jButtonSearch);
 
-		this.getContentPane().add(scrollPanelProducts);
-		
-		jTextFieldSearch = new JTextField();
-		jTextFieldSearch.setBounds(50, 50, 300, 26);
-		getContentPane().add(jTextFieldSearch);
-		
-		jButtonSearch.setBounds(370, 50, 120, 29);
-		jButtonSearch.addActionListener(e -> ejecutarBusqueda());
-		getContentPane().add(jButtonSearch);
-		
-		tableProducts.addMouseListener(new MouseAdapter() {
-            @Override
+        scrollPanelProducts.setBounds(50, 130, 600, 200);
+        
+        tableModelProducts = new DefaultTableModel(null, columnNames) {
+            @Override public boolean isCellEditable(int r, int c) { return false; }
+        };
+        tableProducts.setModel(tableModelProducts);
+        
+        tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(4)); 
+        
+        scrollPanelProducts.setViewportView(tableProducts);
+        getContentPane().add(scrollPanelProducts);
+
+        jButtonClose.setBounds(280, 350, 130, 30);
+        jButtonClose.addActionListener(e -> this.setVisible(false));        
+        getContentPane().add(jButtonClose);
+
+        tableProducts.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent mouseEvent) {
-                if(mouseEvent.getClickCount() == 2) {
+                if (mouseEvent.getClickCount() == 2) {
                     int row = tableProducts.getSelectedRow();
                     if (row != -1) {
-                        Sale s = (Sale) tableModelProducts.getValueAt(row, 3);
-                        // Abrimos el detalle del producto (ShowSaleGUI)
-                        ShowSaleGUI detail = new ShowSaleGUI(s, currentUserEmail, thisFrame);
-                        detail.setVisible(true);
+                        Sale s = (Sale) tableModelProducts.getValueAt(row, 4);
+                        new ShowSaleGUI(s, currentUserEmail, QuerySalesGUI.this).setVisible(true);
                     }
                 }
             }
         });
-	}
+    }
 
-	public void setModoHistorial(boolean modo) {
-		this.modoHistorial = modo;
-		if (modo) {
-			this.setTitle("Mis Compras");
-			cargarDatos("HISTORIAL");
-		}
-	}
+    public void setModoHistorial(boolean modo) {
+        this.modoHistorial = modo;
+        this.setTitle("Mis Compras");
+        jButtonSearch.setVisible(false);
+        jTextFieldSearch.setVisible(false);
+        tipoActual = "HISTORIAL";
+        cargarDatos(tipoActual);
+    }
 
     public void setModoVendedor(boolean modo) {
         this.modoVendedor = modo;
-        if (modo) {
-            this.setTitle("Mis Productos y Ofertas");
-            cargarDatos("VENDEDOR");
+        this.setTitle("Mis Ventas");
+        tipoActual = "VENDEDOR";
+        cargarDatos(tipoActual);
+    }
+
+    public void refrescar() {
+        cargarDatos(tipoActual);
+    }
+
+    private void cargarDatos(String tipo) {
+        tableModelProducts.setRowCount(0);
+        BLFacade facade = MainGUI.getBusinessLogic();
+        List<Sale> lista = new ArrayList<>();
+        
+        if (tipo.equals("BUSQUEDA")) lista = facade.getPublishedSales(jTextFieldSearch.getText(), UtilDate.trim(new Date()));
+        else if (tipo.equals("HISTORIAL")) lista = facade.getBoughtSales(currentUserEmail);
+        else if (tipo.equals("VENDEDOR")) lista = facade.getSellerSales(currentUserEmail);
+
+        for (Sale s : lista) {
+            Vector<Object> row = new Vector<>();
+            row.add(s.getTitle());
+            row.add(s.getPrice() + "€");
+            row.add(new SimpleDateFormat("dd/MM/yyyy").format(s.getPublicationDate()));
+            
+            row.add(Utils.getStatus(s.getStatus()));
+            
+            row.add(s); 
+            tableModelProducts.addRow(row);
         }
     }
-
-	public void ejecutarBusqueda() {
-        cargarDatos("BUSQUEDA");
-    }
-
-	private void cargarDatos(String tipo) {
-		try {
-			tableModelProducts.setDataVector(null, columnNamesProducts);
-			tableModelProducts.setColumnCount(4);
-			BLFacade facade = MainGUI.getBusinessLogic();
-			List<Sale> lista = new ArrayList<>();
-
-            if (tipo.equals("BUSQUEDA")) {
-                lista = facade.getPublishedSales(jTextFieldSearch.getText(), UtilDate.trim(new Date()));
-            } else if (tipo.equals("HISTORIAL")) {
-                lista = facade.getBoughtSales(currentUserEmail);
-                jButtonSearch.setEnabled(false);
-                jTextFieldSearch.setEnabled(false);
-            } else if (tipo.equals("VENDEDOR")) {
-                lista = facade.getSellerSales(currentUserEmail);
-                jButtonSearch.setEnabled(false);
-                jTextFieldSearch.setEnabled(false);
-            }
-
-			for (Sale s : lista) {
-				Vector<Object> row = new Vector<>();
-				row.add(s.getTitle()); 
-				row.add(s.getPrice());
-				row.add(new SimpleDateFormat("dd/MM/yyyy").format(s.getPublicationDate()));
-				row.add(s); 
-				tableModelProducts.addRow(row);		
-			}
-            // Ocultamos la columna del objeto Sale
-            tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(3));
-		} catch (Exception e) { 
-			e.printStackTrace(); 
-		}
-	}
 }
