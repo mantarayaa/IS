@@ -6,6 +6,7 @@ import javax.swing.UIManager;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+//[NOVEDAD ITERACIÓN 2]: Este import soluciona el fallo de inicio de la primera iteración.
 import configuration.ConfigXML; // CRUCIAL: Este import soluciona tu error
 import dataAccess.DataAccess;
 import businessLogic.BLFacade;

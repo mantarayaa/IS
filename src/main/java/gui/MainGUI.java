@@ -8,6 +8,8 @@ import java.awt.*;
 public class MainGUI extends JFrame {
 	private String userMail;
 	private boolean isSellerMode; 
+	
+	// [NOVEDAD ITERACIÓN 2]: Etiqueta estática para poder ser actualizada desde otras ventanas
 	private static JLabel lblBalance; 
 	private static BLFacade appFacadeInterface;
 	private static String staticMail; 
@@ -15,6 +17,7 @@ public class MainGUI extends JFrame {
 	public static BLFacade getBusinessLogic() { return appFacadeInterface; }
 	public static void setBussinessLogic(BLFacade facade) { appFacadeInterface = facade; }
 
+	// [NOVEDAD ITERACIÓN 2]: Método para refrescar el dinero que se ve en pantalla en tiempo real
 	public static void actualizarSaldo() {
 		if (lblBalance != null && appFacadeInterface != null) {
 			User u = appFacadeInterface.getUser(staticMail);
@@ -38,13 +41,14 @@ public class MainGUI extends JFrame {
 		actualizarSaldo(); 
 		lblBalance.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
+		// [NOVEDAD ITERACIÓN 2]: Botón de recarga. Pide input numérico y envía la petición a BD.
 		JButton btnRecharge = new JButton("Recargar");
 		btnRecharge.addActionListener(e -> {
 			String input = JOptionPane.showInputDialog(this, "¿Cuánto dinero quieres añadir?");
 			try {
 				if (input != null) {
 					float amount = Float.parseFloat(input);
-					if (amount <= 0) throw new Exception();
+					if (amount <= 0) throw new Exception(); // Lanza error si es 0 o negativo
 					appFacadeInterface.updateUserBalance(userMail, amount);
 					actualizarSaldo(); 
 					JOptionPane.showMessageDialog(this, "¡Saldo actualizado!");
@@ -64,6 +68,7 @@ public class MainGUI extends JFrame {
 		JButton btnQuery = new JButton("Buscar Productos");
 		btnQuery.addActionListener(e -> new QuerySalesGUI(userMail).setVisible(true));
 
+		// [NOVEDAD ITERACIÓN 2]: Botón inteligente. Cambia su texto y acción según el modo del usuario (Historial de compra o venta).
 		JButton btnExtra = new JButton(isSellerMode ? "Ver mis ventas" : "Ver mis compras");
 		btnExtra.addActionListener(e -> {
 			QuerySalesGUI q = new QuerySalesGUI(userMail);

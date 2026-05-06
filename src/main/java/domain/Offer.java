@@ -2,9 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @SuppressWarnings("serial")
@@ -17,52 +15,29 @@ public class Offer implements Serializable {
     @XmlJavaTypeAdapter(IntegerAdapter.class)
     private Integer offerNumber;
     
-    private float amount;
-    private String buyerEmail;
-    
+    private float amount; 
+    private String buyerEmail; 
+    private int quantity; 
+
     @ManyToOne
     private Sale sale;
 
-    public Offer() {
-        super();
-    }
+    public Offer() { super(); }
 
-    public Offer(float amount, String buyerEmail, Sale sale) {
+    public Offer(float amount, String buyerEmail, Sale sale, int quantity) {
         this.amount = amount;
         this.buyerEmail = buyerEmail;
         this.sale = sale;
+        this.quantity = quantity;
     }
 
-    public Integer getOfferNumber() {
-        return offerNumber;
-    }
-
-    public float getAmount() {
-        return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
-    }
-
-    public String getBuyerEmail() {
-        return buyerEmail;
-    }
-
-    public void setBuyerEmail(String buyerEmail) {
-        this.buyerEmail = buyerEmail;
-    }
-
-    public Sale getSale() {
-        return sale;
-    }
-
-    public void setSale(Sale sale) {
-        this.sale = sale;
-    }
+    public Integer getOfferNumber() { return offerNumber; }
+    public float getAmount() { return amount; }
+    public String getBuyerEmail() { return buyerEmail; }
+    public int getQuantity() { return quantity; }
     
     @Override
     public String toString() {
-        return buyerEmail + ": " + amount + "€";
+        return buyerEmail + ": " + amount + "€ x " + quantity + " uds.";
     }
 }

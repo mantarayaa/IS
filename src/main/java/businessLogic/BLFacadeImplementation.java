@@ -24,9 +24,9 @@ public class BLFacadeImplementation implements BLFacade {
 	}
 
 	@WebMethod
-	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, boolean sinImagen) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
+	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file, boolean sinImagen, int stock) throws FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException {
 		dbManager.open();
-		Sale product = dbManager.createSale(title, description, status, price, pubDate, sellerEmail, file, sinImagen);
+		Sale product = dbManager.createSale(title, description, status, price, pubDate, sellerEmail, file, sinImagen, stock);
 		dbManager.close();
 		return product;
 	}
@@ -62,6 +62,7 @@ public class BLFacadeImplementation implements BLFacade {
 		return img;
 	}
 
+	@WebMethod
 	public domain.User doLogin(String email, String password) {
 		dbManager.open();
 		domain.User u = dbManager.doLogin(email, password);
@@ -69,6 +70,7 @@ public class BLFacadeImplementation implements BLFacade {
 		return u;
 	}
 
+	@WebMethod
 	public boolean registerUser(String email, String name, String password, boolean isSeller) {
 		dbManager.open();
 		boolean res = dbManager.registerUser(email, name, password, isSeller);
@@ -76,14 +78,8 @@ public class BLFacadeImplementation implements BLFacade {
 		return res;
 	}
 
-	@WebMethod
-	public boolean acceptOffer(String buyerEmail, Sale sale, float amount) {
-	    dbManager.open();
-	    boolean res = dbManager.acceptOffer(buyerEmail, sale, amount);
-	    dbManager.close();
-	    return res;
-	}
 	
+	@WebMethod
 	public List<Sale> getBoughtSales(String email) {
 		dbManager.open();
 		List<Sale> bought = dbManager.getBoughtSales(email);
@@ -91,12 +87,6 @@ public class BLFacadeImplementation implements BLFacade {
 		return bought;
 	}
 
-	@WebMethod
-	public void createOffer(Sale sale, String buyerEmail, float amount) {
-		dbManager.open();
-		dbManager.createOffer(sale, buyerEmail, amount);
-		dbManager.close();
-	}
 
 	@WebMethod
 	public List<Sale> getSellerSales(String email) {
@@ -116,11 +106,47 @@ public class BLFacadeImplementation implements BLFacade {
 	
 	@WebMethod
 	public domain.User getUser(String email) {
-	    dbManager.open();
-	    domain.User u = dbManager.getUser(email);
-	    dbManager.close();
-	    return u;
+		dbManager.open();
+		domain.User u = dbManager.getUser(email);
+		dbManager.close();
+		return u;
 	}
-	
-	
+
+	@WebMethod
+	public boolean rateSeller(int saleNumber, int score, String comment) {
+		dbManager.open();
+		boolean res = dbManager.rateSeller(saleNumber, score, comment);
+		dbManager.close();
+		return res;
+	}
+
+	@WebMethod
+	public boolean toggleFavorite(String email, int saleNumber) {
+		dbManager.open();
+		boolean res = dbManager.toggleFavorite(email, saleNumber);
+		dbManager.close();
+		return res;
+	}
+
+	@WebMethod
+	public boolean buySale(String buyerEmail, int saleNumber, int quantity) {
+		dbManager.open();
+		boolean res = dbManager.buySale(buyerEmail, saleNumber, quantity);
+		dbManager.close();
+		return res;
+	}
+	@WebMethod
+	public void createOffer(Sale sale, String buyerEmail, float amount, int quantity) {
+	    dbManager.open();
+	    dbManager.createOffer(sale, buyerEmail, amount, quantity);
+	    dbManager.close();
+	}
+
+	@WebMethod
+	public boolean acceptOffer(String buyerEmail, Sale sale, Offer offer) {
+	    dbManager.open();
+	    boolean res = dbManager.acceptOffer(buyerEmail, sale, offer);
+	    dbManager.close();
+	    return res;
+	}
 }
